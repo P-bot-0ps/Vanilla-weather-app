@@ -37,18 +37,23 @@
         </ul>
         <div class="row">
           <div class="col-md-6">
-            <img
-              src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
-              alt="clear"
-              class="float-left"
-            />
-            <div class="float-left" id="farein">12°c | °F</div>
+            <div class="clearfix weather-temperature">
+              <img
+                src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
+                alt="clear"
+                class="float-left"
+              />
+              <div class="float-left">
+                <strong id="temperature">12</strong
+                ><span class="units">°c | <a href="#">°F</a></span>
+              </div>
+            </div>
           </div>
           <div class="col-md-6">
             <ul>
-              <li id="precipitation">Precipitation: 0%</li>
-              <li id="humidity">Humidity: 73%</li>
-              <li id="wind">Wind: 2km/hr</li>
+              <li><span id="precipitation">Precipitation: 0%</span></li>
+              <li><span id="humidity">Humidity: 73%</span></li>
+              <li><span id="wind">Wind: 2km/hr</span></li>
             </ul>
           </div>
         </div>

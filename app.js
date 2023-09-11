@@ -11,20 +11,28 @@ function displayForecast() {
   ];
   let day = days[date.getDay()];
   return `${day} ${hours}:${minutes}`;
+
+  function formatDate(timestamp) {
+    let date = new Date(timestamp);
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
+    let day = date.getDay();
+    return `${day} ${hours}:${minutes}`;
+  }
 }
 function displayTemperature(response) {
+  console.log(response.data.main.temp);
   let temperatureElement = document.querySelector("#temperature");
-  let cityElement = document.querySelector("#city");
-  let descriptionElement = document.querySelector("#description");
-  let humidityElement = document.querySelector("#humidity");
-  let windElement = document.querySelector("#wind");
-  let dateElement = document.querySelector("#date");
-  let iconElement = document.querySelector("#icon");
-
-  temperatureElement.innerHTML = Math.round(response.data.main, temp);
-  cityElement.innerHTML = response.data.name;
+  temperatureElement.innerHTML = Math.round(response.data.main.temp);
 }
-let apiKey = "79c3354a9040bfa5a9aaf908co79t5d3";
-let apiURL =
-  "https://api.shecodes.io/weather/v1/current?query={query}&key={key}";
+let apiKey = "6db6bfa3cf6ed8d7cea0399fd7f5588b";
+let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=NewYork&appid={"6db6bfa3cf6ed8d7cea0399fd7f5588b"}&units=metric`;
+
+console.log(apiURL);
 axios.get(apiURL).then(displayTemperature);
+
+descriptionElement.innerHTML = response.data.weather[0].description;
+humidityElement.innerHTML = response.data.main.humidity;
+windElement.innerHTML = Math.round(response.data.wind.speed);
+dateElement.innerHTML = FormDate(response.data.dt * 1000);
+iconElement.setA;
