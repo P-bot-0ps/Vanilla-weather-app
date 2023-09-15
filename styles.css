@@ -5,7 +5,7 @@ body {
   max-width: 600px;
   margin: 30px auto;
   padding: 20px;
-  border: 1px solid black;
+  border: 1px solid #dadde1;
   border-radius: 5px;
 }
 h1 {
@@ -34,4 +34,15 @@ a {
   align-items: right;
   margin-left: 700px;
   display: block;
+}
+.float-left {
+  height: 64px;
+  width: 64px;
+  margin-right: 10px;
+}
+.temperature {
+  color: black;
+  font-size: 64px;
+  font-weight: 400;
+  line-height: 1;
 }
