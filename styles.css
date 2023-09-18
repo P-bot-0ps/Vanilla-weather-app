@@ -35,6 +35,10 @@ a {
   margin-left: 500px;
   display: flex;
 }
+.float {
+  align-items: left;
+  position: relative;
+}
 .float-left {
   height: 90px;
   width: 90px;
