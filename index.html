@@ -10,49 +10,48 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <title>Weather App</title>
   </head>
   <body>
     <div class="container">
       <div class="weather-app-wrapper">
-      <div class="weather-app">
-        <form id="search-form">
-          <div class="row">
-            <div class="col-9">
-              <input
-                type="search"
-                placeholder="Type a city.."
-                class="form-control"
-                id="city-input"
-                autofocus="on"
-                autocomplete="off"
-              />
-            </div>
-            <div class="col-3">
-              <input type="submit" value="Search" class="btn btn-primary" />
-            </div>
-          </div>
-        </form>
-        <h1 id="city"></h1>
-        <ul>
-          <li id="date">Friday 05.00</li>
-          <li id="description"></li>
-        </ul>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="clearfix weather-temperature">
-              <img
-                src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
-                alt="clear"
-                class="float-left"
-              />
-              <div class="float">
-                <strong id="temperature" class="temperature">12</strong
-                ><span class="units"
-                  >°c| <a href="#" id="farenheit-link">°F</a></span
-                >
+        <div class="weather-app">
+          
+          <form id="search-form">
+            <div class="row">
+              <div class="col-9">
+                <input
+                  type="search"
+                  placeholder="Type a city.."
+                  class="form-control"
+                  id="city-input"
+                  autofocus="on"
+                  autocomplete="off"
+                />
               </div>
+              <div class="col-3">
+                <input type="submit" value="Search" class="btn btn-primary" />
+              </div>
+            </div>
+          </form>
+          <div class="overview">
+            <h1 id="city">New york</h1>
+              <ul>
+            <li id="date">Friday 05.00</li>
+            <li id="description"></li>
+          </ul>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="clearfix weather-temperature">
+                <img
+                  src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
+                  alt="clear"
+                  class="float-left"
+                />
+                  <strong id="temperature">12</strong>
+                  °C|°F
             </div>
           </div>
           <div class="col-md-6">
@@ -67,13 +66,10 @@
     </div>
     <small
       ><span class="TF">
-        This project was coded by by Regayi Opulence Mlambi</span
-      >
-      <span class="TU"
-        ><a href="https://github.com/P-bot-0ps/Vanilla-weather-app.git"
+        This project was coded by by Regayi Opulence Mlambi
+       <a href="https://github.com/P-bot-0ps/Vanilla-weather-app.git"
           >Open-sourced on Github</a
-        ></span
-      ><span class="TU"><a>and hosted on Netlify</a></span>
+        >and hosted on<a href="">Netlify</a></span>
     </small>
     <script src="app.js"></script>
   </body>
