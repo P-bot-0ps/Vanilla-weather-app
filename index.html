@@ -34,7 +34,7 @@
           <div class="overview">
               <ul>
                 <li id="city" class="city"><strong>New York</strong></li>
-            <li id="date">Friday 05.00</li>
+            <li>last updated <span id="date"></span></li>
             <li id="description"></li>
           </ul>
           </div>
@@ -47,14 +47,16 @@
                   class="float-left"
                 />
                   <strong id="temperature">12</strong>
-                  °C|°F
+                  <span class="units"><a href="#" id="celsius-link" class="active">
+                  °C</a> |<a href="#" id="fahrenheit-link">°F</a>
+                  </span>
             </div>
           </div>
           <div class="col-md-6">
             <ul>
               <li><span id="precipitation">Precipitation: 0%</span></li>
-              <li><span id="humidity">Humidity: 73%</span></li>
-              <li><span id="wind">Wind: 2km/hr</span></li>
+              <li>Humidity: <span id="humidity"></span>%</li>
+              <li>Wind: <span id="wind"></span> km/hr</li>
             </ul>
           </div>
         </div>
@@ -64,7 +66,7 @@
       >
         This project was coded by by Regayi Opulence Mlambi
        <a href="https://github.com/P-bot-0ps/Vanilla-weather-app.git"
-          >Open-sourced on Github</a
+         target="_blank" >Open-sourced on Github</a
         >and hosted on<a href="">Netlify</a>
     </small>
     <script src="app.js"></script>

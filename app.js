@@ -1,7 +1,7 @@
-function formatDate(timestamp) {
-  let date = newDate(1695500312 * 1000);
+function formatDate() {
+  let date = newDate();
   let hours = date.getHours();
-  let minutes = date.getMinutes;
+  let minutes = date.getMinutes();
   let days = [
     "Sunday",
     "Monday",
@@ -23,9 +23,10 @@ function displayTemperature(response) {
   let descriptionElement = document.querySelector("#description");
   temperatureElement.innerHTML = response.data.temperature.current;
   cityElement.innerHTML = response.data.city;
-  humidityElement.innerhtml = response.data.humidity;
+  humidityElement.innerHTML = response.data.temperature.humidity;
   windElement.innerHTML = response.data.wind.speed;
-  descriptionElement.innerhtml = response.data.description;
+  descriptionElement.innerHTML = response.data.condition.description;
+  
 }
 let apiKey = "79c3354a9040bfa5a9aaf908co79t5d3";
 let apiUrl = `https://api.shecodes.io/weather/v1/current?query=Lisbon&key=79c3354a9040bfa5a9aaf908co79t5d3&units=metric`;
