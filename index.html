@@ -24,7 +24,8 @@
                   type="search"
                   placeholder="Type a city.."
                   class="form-control"
-                  id="city-input"/>
+                  id="city-input"
+                />
               </div>
               <div class="col-3">
                 <input type="submit" value="Search" class="btn btn-primary" />
@@ -32,11 +33,11 @@
             </div>
           </form>
           <div class="overview">
-              <ul>
-                <li id="city" class="city"><strong>New York</strong></li>
-            <li>last updated <span id="date"></span></li>
-            <li id="description"></li>
-          </ul>
+            <h1 id="city" class="city"><strong>New York</strong></h1>
+            <ul>
+              <li>last updated <span id="date"></span></li>
+              <li id="description"></li>
+            </ul>
           </div>
           <div class="row">
             <div class="col-md-6">
@@ -44,31 +45,52 @@
                 <img
                   src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
                   alt="clear"
+                  id="icon"
                   class="float-left"
                 />
+                <div class="float-left">
                   <strong id="temperature">12</strong>
-                  <span class="units"><a href="#" id="celsius-link" class="active">
-                  °C</a> |<a href="#" id="fahrenheit-link">°F</a>
+                  <span class="units"
+                    ><a href="#" id="celsius-link" class="active"> °C</a> |<a
+                      href="#"
+                      id="fahrenheit-link"
+                      >°F</a
+                    >
                   </span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <ul>
+                <li><span id="precipitation">Precipitation: 0%</span></li>
+                <li>Humidity: <span id="humidity"></span>%</li>
+                <li>Wind: <span id="wind"></span> km/hr</li>
+              </ul>
             </div>
           </div>
-          <div class="col-md-6">
-            <ul>
-              <li><span id="precipitation">Precipitation: 0%</span></li>
-              <li>Humidity: <span id="humidity"></span>%</li>
-              <li>Wind: <span id="wind"></span> km/hr</li>
-            </ul>
+          <div class="weather-forecast">
+            <div class="row">
+              <div class="col-2">
+                <div class="weather-forecast-date">Thu</div>
+                <img src="" alt="" width="42" />
+                <div class="weather-forecast-temperatures">
+                  <span class="weather-forecast-temperature-max"> 18° </span>
+                  <span class="weather-forecast-temperature-min"> 12° </span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+        <small>
+          This project was coded by by Regayi Opulence Mlambi
+          <a
+            href="https://github.com/P-bot-0ps/Vanilla-weather-app.git"
+            target="_blank"
+            >Open-sourced on Github</a
+          >and hosted on<a href="">Netlify</a>
+        </small>
       </div>
     </div>
-    <small
-      >
-        This project was coded by by Regayi Opulence Mlambi
-       <a href="https://github.com/P-bot-0ps/Vanilla-weather-app.git"
-         target="_blank" >Open-sourced on Github</a
-        >and hosted on<a href="">Netlify</a>
-    </small>
     <script src="app.js"></script>
   </body>
 </html>
