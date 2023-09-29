@@ -9,16 +9,13 @@ body {
   border-radius: 10px;
 }
 .city {
-  font-size: 24px;
   color: black;
-}
-h1 {
-  color: rgba(14, 1, 1, 0);
   font-family: arial, sans-serif;
   font-size: 28px;
   font-weight: 100;
   line-height: 29px;
   margin-bottom: 0;
+  margin-left: 15px;
 }
 li {
   list-style: none;
@@ -40,6 +37,14 @@ li {
   font-weight: 400;
   line-height: 1;
 }
+.units {
+  position: relative;
+  top: -34px;
+  margin: 0 auto;
+}
+.search-form {
+  margin-bottom: 20px;
+}
 .overview {
   margin-bottom: 20px;
 }
@@ -47,4 +52,7 @@ li {
   position: relative;
   font-size: 16px;
   top: -34px;
+}
+.tidy {
+  text-align: center;
 }
