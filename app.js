@@ -1,5 +1,5 @@
 function formatDate(timestamp) {
-  let date = newDate(timestand);
+  let date = new Date(timestamp);
   let hours = date.getHours();
 
   if (hours < 10) {
@@ -23,12 +23,36 @@ function formatDate(timestamp) {
 }
 function getforecast(coordinates) {
   console.log(coordinates);
-  let apiKey = "1d038ee28ef2727a9f0310860ac10ae9";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}
-  &appid=${apiKey}&units=metric`;
+  let apiKey = "79c3354a9040bfa5a9aaf908co79t5d3";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon={lon}&lat={lat}&{key}
+  &units=metric`;
   console.log(apiUrl);
   axios.get(apiUrl).then(displayForecast);
 }
+let forecastElement = document.querySelector("#forecast");
+let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
+let forecastHTML = `<div class="row">`;
+days.forEach(function (day) {
+  forecastHTML =
+    forecastHTML +
+    `
+  <div class="col-2">
+  div class="weather-forecast-date">$(day)</div>
+  <img
+  src=""
+  alt=""
+  width="42"
+  />
+  <div class="weathr-forecast-temperatures">
+  <span class="weather-forecast-temperature-max"> 18 </span>
+  <span class="weather-forecast-temperature-min"> 12 </span>
+  </div>
+  </div>
+  `;
+});
+forecastHTML = forecastHTML + `</div>`;
+forecastElement.innerHTML = forecastHTML;
+
 function displayTemperature(response) {
   console.log(response.data);
   let temperatureElement = document.querySelector("#temperature");
@@ -38,15 +62,22 @@ function displayTemperature(response) {
   let descriptionElement = document.querySelector("#description");
   let dateElement = document.querySelector("#date");
   let celsiusTemperature = response.data.temperature.current;
+  let iconElement = document.querySelector("#icon");
   temperatureElement.innerHTML = response.data.temperature.current;
   cityElement.innerHTML = response.data.city;
   humidityElement.innerHTML = response.data.temperature.humidity;
   windElement.innerHTML = response.data.wind.speed;
   descriptionElement.innerHTML = response.data.condition.description;
   dateElement.innerHTML = formatDate(response.data.temperature.time * 1000);
+  iconElement.setAttribute(
+    "src"`http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-night${response.data.condition.icon_url}.png`
+  );
+  iconElement.setAttribute("alt", response.data.condition.description);
 }
+
 let apiKey = "79c3354a9040bfa5a9aaf908co79t5d3";
-let apiUrl = `https://api.shecodes.io/weather/v1/current?query=Lisbon&key=79c3354a9040bfa5a9aaf908co79t5d3&units=metric`;
+let city = "Los Angeles";
+let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=79c3354a9040bfa5a9aaf908co79t5d3&units=metric`;
 console.log(apiUrl);
 
 axios.get(apiUrl).then(displayTemperature);
@@ -56,6 +87,10 @@ function handleSubmit(event) {
   let cityInputElement = document.querySelector("#city-input");
   search(cityInputElement.value);
 }
+search("");
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
 
 function displayFahrenheitTemperature(event) {
   event.preventDefault();
@@ -67,9 +102,7 @@ function displayFahrenheitTemperature(event) {
 }
 
 let celsiusTemperature = null;
-let form = document.querySelector("#search-form");
-form.addEventListener("submit", handleSubmit);
-search(NewYork);
+
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
