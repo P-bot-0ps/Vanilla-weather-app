@@ -46,16 +46,20 @@ function displayForecast(response) {
   width="42"
   />
   <div class="weathr-forecast-temperatures">
-  <span class="weather-forecast-temperature-max"> 18 </span>
-  <span class="weather-forecast-temperature-min"> 12 </span>
+  <span class="weather-forecast-temperature-max"> ${Math.round(
+    forecastDay.temp.max
+  )} 18° </span>
+  <span class="weather-forecast-temperature-min"> ${Math.round(
+    forecastDay.temp.min
+  )} 12° </span>
   </div>
   </div>
   `;
     }
   });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
 }
-forecastHTML = forecastHTML + `</div>`;
-forecastElement.innerHTML = forecastHTML;
 
 function getforecast(coordinates) {
   let apiKey = "79c3354a9040bfa5a9aaf908co79t5d3";
@@ -80,25 +84,24 @@ function displayTemperature(response) {
   humidityElement.innerHTML = response.data.temperature.humidity;
   windElement.innerHTML = response.data.wind.speed;
   descriptionElement.innerHTML = response.data.condition.description;
-  dateElement.innerHTML = formatDate(response.data.dt * 1000);
+  dateElement.innerHTML = formatDate(response.data.temperature.time * 1000);
   iconElement.setAttribute(
-    "src"`http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.daily.condition.icon_url}.png`
+    "src"`http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
   );
   iconElement.setAttribute("alt", response.data.condition.description);
 }
 
-function search(city) {
-  let apiKey = "79c3354a9040bfa5a9aaf908co79t5d3";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=79c3354a9040bfa5a9aaf908co79t5d3&units=metric`;
-  axios.get(apiUrl).then(displayTemperature);
-}
+let apiKey = "79c3354a9040bfa5a9aaf908co79t5d3";
+let city = "Los Angeles";
+let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=79c3354a9040bfa5a9aaf908co79t5d3&units=metric`;
+axios.get(apiUrl).then(displayTemperature);
 
 function handleSubmit(event) {
   event.preventDefault();
   let cityInputElement = document.querySelector("#city-input");
   search(cityInputElement.value);
 }
-search("Lisbon");
+search("");
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
