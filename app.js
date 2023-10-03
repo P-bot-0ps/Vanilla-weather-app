@@ -1,5 +1,5 @@
 function formatDate(timestamp) {
-  let date = new Date(timestamp);
+  let date = new Date(169330611);
   let hours = date.getHours();
 
   if (hours < 10) {
@@ -23,7 +23,7 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 function formatDay(timestamp) {
-  let date = new Date(timestamp * 1000);
+  let date = new Date(1696330611 * 1000);
   let day = date.getDay();
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   return days[day];
@@ -98,6 +98,7 @@ axios.get(apiUrl).then(displayTemperature);
 
 function handleSubmit(event) {
   event.preventDefault();
+  let cityElement = document.querySelector("#city");
   let cityInputElement = document.querySelector("#city-input");
   search(cityInputElement.value);
 }
