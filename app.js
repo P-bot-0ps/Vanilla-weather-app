@@ -86,7 +86,8 @@ function displayTemperature(response) {
   descriptionElement.innerHTML = response.data.condition.description;
   dateElement.innerHTML = formatDate(response.data.temperature.time * 1000);
   iconElement.setAttribute(
-    "src"`http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day${response.data.condition.icon}.png`
+    "src",
+    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day${response.data.condition.icon}.png`
   );
   iconElement.setAttribute("alt", response.data.condition.description);
 }
@@ -102,7 +103,7 @@ function handleSubmit(event) {
   let cityInputElement = document.querySelector("#city-input");
   search(cityInputElement.value);
 }
-search("");
+search("Paris");
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
