@@ -1,5 +1,5 @@
 function formatDate(timestamp) {
-  let date = new Date(169330611);
+  let date = new Date(1696538161 * 1000);
   let hours = date.getHours();
 
   if (hours < 10) {
@@ -23,7 +23,7 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 function formatDay(timestamp) {
-  let date = new Date(1696330611 * 1000);
+  let date = new Date(time * 1000);
   let day = date.getDay();
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   return days[day];
@@ -39,9 +39,13 @@ function displayForecast(response) {
         forecastHTML +
         `
   <div class="col-2">
-  div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
+  div class="weather-forecast-date">${formatDay(
+    forecastDay.temperature.time
+  )}</div>
   <img
-  src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png"
+  src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
+    response.data.daily.condition.icon
+  }.png"
   alt=""
   width="42"
   />
@@ -87,23 +91,23 @@ function displayTemperature(response) {
   dateElement.innerHTML = formatDate(response.data.temperature.time * 1000);
   iconElement.setAttribute(
     "src",
-    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day${response.data.condition.icon}.png`
+    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
   );
   iconElement.setAttribute("alt", response.data.condition.description);
 }
-
-let apiKey = "79c3354a9040bfa5a9aaf908co79t5d3";
-let city = "Los Angeles";
-let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=79c3354a9040bfa5a9aaf908co79t5d3&units=metric`;
-axios.get(apiUrl).then(displayTemperature);
+function search(city) {
+  let apiKey = "79c3354a9040bfa5a9aaf908co79t5d3";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=79c3354a9040bfa5a9aaf908co79t5d3&units=metric`;
+  axios.get(apiUrl).then(displayTemperature);
+}
 
 function handleSubmit(event) {
   event.preventDefault();
-  let cityElement = document.querySelector("#city");
   let cityInputElement = document.querySelector("#city-input");
   search(cityInputElement.value);
 }
-search("Paris");
+
+search("New York");
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
